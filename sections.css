@@ -114,8 +114,9 @@
 .quote-stage{display:grid}
 .quote{grid-area:1/1;margin:0;animation:quote-in .6s var(--ease)}
 .quote[hidden]{display:none}
-.quote::before{content:'“';display:block;font-family:Georgia,serif;font-size:56px;line-height:.6;color:var(--c-grey);margin-bottom:18px}
-.quote blockquote{margin:0 0 22px;font-family:Manrope,sans-serif;font-size:clamp(20px,1.9vw,27px);font-weight:500;line-height:1.38;letter-spacing:-.025em;color:var(--c-ink)}
+.quote::before{content:none}
+.quote h3{margin:0 0 22px;font-family:Manrope,sans-serif;font-size:clamp(20px,1.9vw,27px);font-weight:500;line-height:1.38;letter-spacing:-.025em;color:var(--c-ink)}
+.promise-copy{margin:0 0 24px;font-size:15px;line-height:1.8;color:var(--c-text)}
 .quote figcaption{font-size:13.5px;color:var(--c-text)}
 .quote figcaption b{color:var(--c-ink);font-weight:600}
 .quote-count{grid-area:2/1;margin:30px 0 0;font-size:12.5px;color:var(--c-grey);font-variant-numeric:tabular-nums}
@@ -221,3 +222,4 @@
   .js-reveal .reveal{opacity:1;translate:none}
   .howto-track{animation:none}
 }
+.svc-card img[src="assets/photos/umrah.jpg"]{object-position:center 84%}

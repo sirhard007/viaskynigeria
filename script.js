@@ -83,21 +83,21 @@ const form = document.getElementById('trip-form');
 // Business WhatsApp number: 08138252839 -> +234 813 825 2839
 const VIASKY_WHATSAPP_NUMBER = '2348138252839';
 
-const DEFAULT_TRIP_IMAGE = 'assets/v2-concepts/01-above-the-clouds.png';
+const DEFAULT_TRIP_IMAGE = 'assets/photos/bali.jpg';
 
 const DESTINATIONS = [
-  { code: 'LHR', city: 'London', country: 'United Kingdom', image: 'assets/destinations/london.jpg', visas: ['Visit visa', 'Student visa'] },
+  { code: 'LHR', city: 'London', country: 'United Kingdom', image: 'assets/photos/london.jpg', visas: ['Visit visa', 'Student visa'] },
   { code: 'JED', city: 'Makkah & Madinah', country: 'Saudi Arabia', visas: ['Umrah visa', 'Tourist visa'] },
   { code: 'IST', city: 'Istanbul', country: 'Turkey' },
   { code: 'KUL', city: 'Kuala Lumpur', country: 'Malaysia' },
   { code: 'SIN', city: 'Singapore', country: 'Singapore' },
   { code: 'BKK', city: 'Bangkok & Phuket', country: 'Thailand' },
-  { code: 'DPS', city: 'Bali', country: 'Indonesia', image: 'assets/booking/coastline.jpg' },
+  { code: 'DPS', city: 'Bali', country: 'Indonesia', image: 'assets/photos/bali.jpg' },
   { code: 'CAN', city: 'Guangzhou & Shanghai', country: 'China' },
-  { code: 'DXB', city: 'Dubai', country: 'United Arab Emirates', image: 'assets/destinations/dubai.jpg' },
+  { code: 'DXB', city: 'Dubai', country: 'United Arab Emirates', image: 'assets/photos/dubai.jpg' },
   { code: 'CPT', city: 'Cape Town & Johannesburg', country: 'South Africa' },
-  { code: 'ZNZ', city: 'Zanzibar', country: 'Tanzania', image: 'assets/destinations/zanzibar.jpg' },
-  { code: 'RAK', city: 'Marrakech', country: 'Morocco', image: 'assets/v2-concepts/03-desert-retreat.png' }
+  { code: 'ZNZ', city: 'Zanzibar', country: 'Tanzania', image: 'assets/photos/zanzibar.jpg' },
+  { code: 'RAK', city: 'Marrakech', country: 'Morocco', image: 'assets/photos/marrakech.jpg' }
 ];
 const OTHER_DESTINATION = { code: 'ANY', city: 'Somewhere else', country: 'Tell us in your notes' };
 const DEFAULT_VISAS = ['Tourist visa', 'Business visa'];
@@ -1140,7 +1140,7 @@ if (document.readyState === 'loading') {
 
 })();
 
-// Traveller stories: one review at a time, advancing on its own unless the reader is engaged.
+// Service promises: one commitment at a time, advancing unless the reader is engaged.
 (() => {
   const stage = document.getElementById('quote-stage');
   if (!stage) return;
