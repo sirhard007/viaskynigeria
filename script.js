@@ -93,7 +93,7 @@ const DESTINATIONS = [
   { code: 'SIN', city: 'Singapore', country: 'Singapore' },
   { code: 'BKK', city: 'Bangkok & Phuket', country: 'Thailand' },
   { code: 'DPS', city: 'Bali', country: 'Indonesia', image: 'assets/photos/bali.jpg' },
-  { code: 'CAN', city: 'Guangzhou & Shanghai', country: 'China' },
+  { code: 'DOH', city: 'Doha', country: 'Qatar' },
   { code: 'DXB', city: 'Dubai', country: 'United Arab Emirates', image: 'assets/photos/dubai.jpg' },
   { code: 'CPT', city: 'Cape Town & Johannesburg', country: 'South Africa' },
   { code: 'ZNZ', city: 'Zanzibar', country: 'Tanzania', image: 'assets/photos/zanzibar.jpg' },
