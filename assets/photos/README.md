@@ -26,3 +26,11 @@ Zanzibar photograph location: Zuri Zanzibar, Tanzania. The service photographs i
 | bali.jpg | Steven Wilcox | https://unsplash.com/photos/7ieg4KY_e3Q |
 
 Scene photography uses files from this folder; the original illustrated hero and footer were restored at the user’s request. Original VIA SKY logos, the Nigeria flag and code-drawn interface icons remain. Other older generated scene assets are retained in the repository but are no longer referenced by the website.
+
+## Targeted passport cover edit
+
+File: passport-nigeria-edited.png
+Source photograph: passport.jpg by CardMapr.nl, https://unsplash.com/photos/LVA3S6isNYQ (Unsplash License).
+Edited with the built-in image_gen tool at the user’s explicit request. Used only in the Visa Assistance service card; the original remains unchanged for other uses.
+
+Prompt: Change ONLY the burgundy/brown Dutch passport lying diagonally on the bag into a dark green Nigerian passport cover, with natural gold embossed FEDERAL REPUBLIC OF NIGERIA, Nigerian coat of arms and PASSPORT text. Keep the exact passport size, position, angle, perspective, cover texture, page edges and lighting. Preserve everything outside the passport cover: the original black North Face bag, folds and straps, boarding pass and text, cards and colours beneath, phone at lower right, composition, focus, shadows and original landscape aspect ratio. Do not redesign, move, crop, remove or add anything else.
