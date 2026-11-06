@@ -1,0 +1,17 @@
+import { createInterface } from 'node:readline/promises';
+import { Writable } from 'node:stream';
+import { randomBytes } from 'node:crypto';
+import { hashPassword } from './security.mjs';
+const hidden = new Writable({ write(_chunk, _encoding, callback) { callback(); } });
+if (!process.stdin.isTTY) throw new Error('Run this command yourself in an interactive terminal to keep password entry hidden.');
+const prompt = createInterface({ input: process.stdin, output: hidden, terminal: true });
+process.stdout.write('Choose the production analytics password (12+ characters; input hidden): ');
+const password = await prompt.question('');
+process.stdout.write('\nConfirm password (input hidden): ');
+const confirmation = await prompt.question('');
+prompt.close();
+if (password !== confirmation) throw new Error('Passwords do not match.');
+const encoded = hashPassword(password);
+console.log('\nCopy these values privately into Vercel Environment Variables. Do not commit or share them.\n');
+console.log('ANALYTICS_ADMIN_PASSWORD_HASH=' + encoded);
+console.log('ANALYTICS_SESSION_SECRET=' + randomBytes(48).toString('hex'));

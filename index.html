@@ -26,6 +26,9 @@
   <link rel="stylesheet" href="sections.css?v=12" />
   <link rel="stylesheet" href="booking-modal.css?v=12" />
   <link rel="stylesheet" href="footer.css?v=12" />
+  <link rel="stylesheet" href="analytics.css?v=2" />
+  <script src="analytics-config.js?v=2" defer></script>
+  <script src="analytics.js?v=2" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -409,6 +412,7 @@
     <div class="footer-start"><h2>A destination in mind?</h2><p>Start with an idea.<br/>Let’s work out the rest.</p><button class="footer-enquiry" data-plan>Start my trip brief <svg class="diagonal-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12" /></svg></button></div>
   </div>
   <div class="site-shell footer-bottom"><p>© <span id="footer-year">2026</span> ViaSky. All rights reserved.</p><span>Explore. Dream. Go.</span><a href="#home">Back to the top ↑</a></div>
+  <div class="site-shell privacy-links"><a href="privacy.html">Privacy &amp; analytics</a><button type="button" data-analytics-settings>Analytics preferences</button></div>
   <div class="world-panorama"><img src="assets/footer/world-landmarks.png" alt="A colourful illustrated world of landmarks, coastlines and an aircraft taking flight" loading="lazy" decoding="async" width="1983" height="793" /></div>
 </footer>
 
@@ -578,6 +582,11 @@
     </div>
   </div>
 </dialog>
-<script src="script.js?v=11"></script>
+<section class="analytics-consent" id="analytics-consent" aria-labelledby="analytics-consent-title" hidden>
+  <h2 id="analytics-consent-title">Help us improve your journey</h2>
+  <p>May we use optional analytics to understand visits and improve our travel services? Your choice won’t affect your enquiry. <a href="privacy.html">Privacy details</a></p>
+  <div class="analytics-consent-actions"><button type="button" data-analytics-decline>Decline analytics</button><button type="button" data-analytics-accept>Accept analytics</button></div>
+</section>
+<script src="script.js?v=13"></script>
 </body>
 </html>

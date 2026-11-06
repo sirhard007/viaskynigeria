@@ -145,6 +145,15 @@ const booking = (() => {
   const asideImage = document.getElementById('bk-aside-img');
   const summary = id => document.getElementById(id);
   let current = 1;
+  const completedAnalyticsSteps = new Set();
+  function trackBooking(eventName, extra = {}) {
+    window.viaSkyAnalytics?.track(eventName, { service: service(), destination: destination()?.code, ...extra });
+  }
+  function completeAnalyticsStep(step) {
+    if (completedAnalyticsSteps.has(step)) return;
+    completedAnalyticsSteps.add(step);
+    trackBooking('planner_step_complete', { step });
+  }
 
   // Destination options are built from the same list as the destinations section.
   destinationGrid.innerHTML = [...DESTINATIONS, OTHER_DESTINATION].map(d => `
@@ -275,6 +284,7 @@ const booking = (() => {
     submitButton.hidden = step !== 4;
     errorText.textContent = '';
     updateSummary();
+    trackBooking('planner_step_view', { step });
   }
 
   // Umrah already knows its destination, so it skips straight to the details.
@@ -282,7 +292,7 @@ const booking = (() => {
   const previousStep = from => (from === 3 && service() === 'umrah' ? 1 : from - 1);
 
   nextButton.addEventListener('click', () => {
-    if (validate(current)) goTo(nextStep(current), 1);
+    if (validate(current)) { completeAnalyticsStep(current); goTo(nextStep(current), 1); }
   });
   backButton.addEventListener('click', () => goTo(previousStep(current), -1));
 
@@ -290,6 +300,11 @@ const booking = (() => {
     const name = event.target.name;
     if (name === 'service' || name === 'trip_type') applyService();
     if (name === 'destination' && service() === 'visa') renderVisaTypes();
+    if (name === 'service') {
+      trackBooking('service_select');
+      if (service() === 'umrah') trackBooking('destination_select');
+    }
+    if (name === 'destination') trackBooking('destination_select');
     if (name === 'date_start' && dateStart.value) {
       dateEnd.min = dateStart.value;
       if (dateEnd.value && dateEnd.value < dateStart.value) dateEnd.value = '';
@@ -299,7 +314,7 @@ const booking = (() => {
     updateSummary();
     // A single choice on steps 1 and 2 moves the brief along.
     if ((name === 'service' && current === 1) || (name === 'destination' && current === 2 && service() !== 'visa')) {
-      setTimeout(() => { if (validate(current)) goTo(nextStep(current), 1); }, 260);
+      setTimeout(() => { if (validate(current)) { completeAnalyticsStep(current); goTo(nextStep(current), 1); } }, 260);
     }
   });
   form.addEventListener('input', event => {
@@ -355,6 +370,10 @@ const booking = (() => {
       return;
     }
     if (!validate(4)) return;
+    if (!completedAnalyticsSteps.has(4)) {
+      completeAnalyticsStep(4);
+      trackBooking('whatsapp_handoff');
+    }
     const url = `https://wa.me/${VIASKY_WHATSAPP_NUMBER}?text=${encodeURIComponent(buildMessage())}`;
     submitButton.querySelector('span').textContent = 'Opening WhatsApp…';
     window.open(url, '_blank', 'noopener,noreferrer');
@@ -372,12 +391,16 @@ const booking = (() => {
   });
   dialog.addEventListener('close', () => document.documentElement.classList.remove('menu-is-open'));
 
-  function open({ service: requested, destination: code } = {}) {
+  function open({ service: requested, destination: code, placement = 'other' } = {}) {
+    completedAnalyticsSteps.clear();
     const key = resolveServiceKey(requested);
     form.querySelectorAll('input[name="service"], input[name="destination"]').forEach(input => { input.checked = false; });
     if (key) form.querySelector(`input[name="service"][value="${key}"]`).checked = true;
     if (code) checkDestination(code);
     applyService();
+    trackBooking('planner_open', { placement });
+    if (key) trackBooking('service_select');
+    if (destination()) trackBooking('destination_select');
     const skipDestination = service() === 'umrah' || (destination() && service() !== 'visa');
     const start = !service() ? 1 : skipDestination ? 3 : 2;
     goTo(start);
@@ -392,7 +415,7 @@ const booking = (() => {
 
 document.querySelectorAll('[data-plan]').forEach(button => button.addEventListener('click', () => {
   closeMenu();
-  booking.open({ service: button.dataset.service, destination: button.dataset.destination });
+  booking.open({ service: button.dataset.service, destination: button.dataset.destination, placement: window.viaSkyAnalytics?.placement(button) || 'other' });
 }));
 
 // --- World-Class Hero Dynamics: 2.5D Parallax, Atmospheric Particles, & Tactile Physics ---
@@ -840,7 +863,7 @@ function initStatementSection() {
     statementText.querySelectorAll('.inline-pill').forEach(pill => {
       pill.addEventListener('click', (e) => {
         e.stopPropagation();
-        booking.open({ service: pillServices[pill.getAttribute('data-pill')] });
+        booking.open({ service: pillServices[pill.getAttribute('data-pill')], placement: 'about' });
       });
     });
 

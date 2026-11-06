@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privacy & analytics | ViaSky</title>
+  <meta name="description" content="How ViaSky handles your trip enquiries and optional website analytics." />
+  <link rel="stylesheet" href="analytics.css?v=2" />
+  <script src="analytics-config.js?v=2" defer></script>
+  <script src="analytics.js?v=2" defer></script>
+</head>
+<body class="privacy-page">
+  <main class="privacy-main">
+    <a href="/">← Back to ViaSky</a>
+    <h1>Privacy & analytics</h1>
+    <p>Updated 7 November 2026</p>
+    <p>ViaSky uses the information you choose to share to respond to travel enquiries and help plan your trip. Contact us at <a href="mailto:hello.viasky@gmail.com">hello.viasky@gmail.com</a> with a privacy question or a request concerning your enquiry.</p>
+    <h2>Your trip enquiry</h2>
+    <p>The trip planner prepares a WhatsApp message containing the details you enter, such as your destination, travel dates, name and optional contact details or notes. The planner keeps those entries in the current page while you use it. Selecting “Send on WhatsApp” opens WhatsApp with that message ready for you to review and send.</p>
+    <p>Your message is then handled by WhatsApp under its own privacy policy and by ViaSky when received. Please share only the information needed for your enquiry. Do not enter passport numbers, payment card information or sensitive documents in the trip planner.</p>
+    <h2>Optional website analytics</h2>
+    <p>When you choose “Accept analytics”, we use VIA SKY’s own analytics to understand visits and improve our website. This includes random browser and session identifiers, device category, approximate country, traffic source, service and destination selections, planner steps and WhatsApp button clicks. Reports are available only in our private dashboard.</p>
+    <p>Our analytics events do not include your name, phone number, email address, travel dates, free-text notes or prepared WhatsApp message. We record only the homepage or privacy page, without query strings or fragments. We do not use advertising trackers or browser fingerprinting. A WhatsApp handoff records a website action; it does not confirm that a message was sent or a booking was completed.</p>
+    <h2>Your choice</h2>
+    <p>Analytics is optional. We send analytics events only after you accept. Choosing “Decline analytics” keeps optional tracking off and you can still use the site and trip planner. You can change your choice at any time below or through “Analytics preferences” in the website footer.</p>
+    <p>Your choice is saved in your browser for up to six months. If you accept, a random browser identifier is stored for up to six months and a session identifier expires after 30 minutes of inactivity. These use browser storage. Withdrawing consent stops future collection, clears pending events and removes those identifiers from this browser. Events already received remain in aggregate reports until retention cleanup; clearing an identifier does not erase previously received events.</p>
+    <div class="privacy-links"><button type="button" data-analytics-settings>Analytics preferences</button></div>
+    <h2>Storage and service providers</h2>
+    <p>Analytics is processed by our backend on Vercel and stored in our Supabase database. These providers may process data outside your country. Raw analytics records are scheduled for deletion after 90 days. Your IP address and full browser user-agent are not stored in analytics event records. The server uses a temporary hash of the connection address to limit abuse; hosting providers may keep their own operational logs. Reports include only consented activity that reaches our server and are approximate, not a record of every visitor.</p>
+  </main>
+  <section class="analytics-consent" id="analytics-consent" aria-labelledby="analytics-consent-title" hidden>
+    <h2 id="analytics-consent-title">Help us improve your journey</h2>
+    <p>May we use optional analytics to understand visits and improve our travel services? Your choice won’t affect your enquiry. <a href="privacy.html">Privacy details</a></p>
+    <div class="analytics-consent-actions"><button type="button" data-analytics-decline>Decline analytics</button><button type="button" data-analytics-accept>Accept analytics</button></div>
+  </section>
+</body>
+</html>
