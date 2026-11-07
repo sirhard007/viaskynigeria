@@ -1,12 +1,12 @@
 .analytics-consent[hidden]{display:none!important}
-.analytics-consent{position:fixed;z-index:10000;bottom:20px;left:20px;right:20px;max-width:760px;margin:auto;padding:20px 24px;border:1px solid #dce5e9;border-radius:20px;background:#fff;color:#172b42;box-shadow:0 10px 50px #062b6030;font:14px/1.65 'DM Sans',sans-serif}
-.analytics-consent h2{font:600 18px/1.4 Manrope,sans-serif;margin:0 0 7px;color:#062b60;letter-spacing:normal}
-.analytics-consent p{margin:0 0 14px}
+.analytics-consent{position:fixed;z-index:9000;bottom:16px;left:20px;right:20px;display:flex;align-items:center;gap:24px;max-width:1060px;margin:auto;padding:14px 20px;border:1px solid #dce5e9;border-radius:14px;background:#fff;color:#172b42;box-shadow:0 6px 28px #062b6020;font:13px/1.5 'DM Sans',sans-serif;box-sizing:border-box}
+.analytics-consent-copy{flex:1;min-width:0}
+.analytics-consent h2{font:600 14px/1.4 Manrope,sans-serif;margin:0 0 3px;color:#062b60;letter-spacing:normal}
+.analytics-consent p{margin:0}
 .analytics-consent a{color:#062b60;text-decoration:underline}
-.analytics-consent-actions{display:flex;gap:10px;flex-wrap:wrap}
-.analytics-consent button{padding:10px 16px;border:1px solid #062b60;border-radius:30px;font:600 13px/1.4 'DM Sans',sans-serif;cursor:pointer;min-height:42px}
-.analytics-consent [data-analytics-decline]{background:#fff;color:#062b60}
-.analytics-consent [data-analytics-accept]{background:#062b60;color:#fff}
+.analytics-consent-actions{display:flex;gap:8px;flex-shrink:0}
+.analytics-consent button{padding:10px 14px;border:1px solid #b8c8da;border-radius:8px;background:#f4f7fb;color:#062b60;font:600 13px/1.4 'DM Sans',sans-serif;cursor:pointer;min-height:44px;white-space:nowrap;transition:background .15s,border-color .15s}
+.analytics-consent button:hover{background:#e6edf5;border-color:#062b60}
 .analytics-consent button:focus-visible,.privacy-links a:focus-visible,.privacy-links button:focus-visible{outline:3px solid #e7aa25;outline-offset:3px}
 .privacy-links{display:flex;gap:18px;flex-wrap:wrap;padding:0 0 22px;font:13px/1.5 'DM Sans',sans-serif;color:#46586a}
 .privacy-links button{border:0;padding:0;background:none;color:inherit;font:inherit;text-decoration:underline;cursor:pointer}
@@ -16,4 +16,4 @@
 .privacy-main h1{font:600 clamp(30px,5vw,44px)/1.2 Manrope,sans-serif;color:#062b60;letter-spacing:-.03em;text-shadow:none;margin:24px 0}
 .privacy-main h2{font:600 22px/1.4 Manrope,sans-serif;color:#062b60;margin:30px 0 10px}
 .privacy-main a{color:#062b60;text-decoration:underline}
-@media(max-width:600px){.analytics-consent{left:12px;right:12px;bottom:12px;padding:17px 18px;font-size:13px}.analytics-consent-actions button{flex:1}.analytics-consent h2{font-size:17px}}
+@media(max-width:700px){.analytics-consent{left:12px;right:12px;bottom:12px;display:block;padding:12px 14px;font-size:12px}.analytics-consent-actions{margin-top:10px}.analytics-consent-actions button{flex:1}.analytics-consent h2{font-size:13px}}
